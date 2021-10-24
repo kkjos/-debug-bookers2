@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :books
   attachment :profile_image, destroy: false
 
-  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
+  validates :name, presence: true, length: {maximum: 20, minimum: 2}, uniqueness: true
+  validates :introduction, length: {maximum: 50}
 end
